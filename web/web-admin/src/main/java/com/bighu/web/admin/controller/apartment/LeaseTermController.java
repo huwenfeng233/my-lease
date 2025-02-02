@@ -23,7 +23,7 @@ public class LeaseTermController {
     @GetMapping("list")
     @Operation(summary = "查询全部租期列表")
     public Result<List<LeaseTerm>> listLeaseTerm() {
-        List<LeaseTerm> leaseTerms = new ArrayList<LeaseTerm>;
+        List<LeaseTerm> leaseTerms ;
         try {
             leaseTerms = leaseTermService.list();
         }

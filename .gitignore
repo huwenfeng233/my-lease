@@ -31,16 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
-/common/.gitattributes
-/model/.gitattributes
-/web/web-admin/.gitattributes
-/web/web-app/.gitattributes
-/web/.gitattributes
-/common/.gitignore
-/model/.gitignore
-/web/web-admin/.gitignore
-/web/web-app/.gitignore
-/web/.gitignore
 /common/.mvn/wrapper/maven-wrapper.properties
 /model/.mvn/wrapper/maven-wrapper.properties
 /web/.mvn/wrapper/maven-wrapper.properties

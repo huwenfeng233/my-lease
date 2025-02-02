@@ -2,9 +2,14 @@ package com.bighu.web.admin.service.impl;
 
 import com.bighu.model.entity.AttrKey;
 import com.bighu.web.admin.mapper.AttrKeyMapper;
+import com.bighu.web.admin.mapper.AttrValueMapper;
 import com.bighu.web.admin.service.AttrKeyService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.bighu.web.admin.vo.attr.AttrKeyVo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author liubo
@@ -14,7 +19,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class AttrKeyServiceImpl extends ServiceImpl<AttrKeyMapper, AttrKey>
     implements AttrKeyService{
+    @Autowired
+    private AttrKeyMapper attrKeyMapper;
 
+    @Autowired
+    private AttrValueMapper attrValueMapper;
+    @Override
+    public List<AttrKeyVo> listAttrInfo() {
+        return attrKeyMapper.listAttrInfo();
+
+    }
 }
 
 

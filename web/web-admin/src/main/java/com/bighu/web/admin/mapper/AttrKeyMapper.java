@@ -16,6 +16,7 @@ import java.util.List;
 @Mapper
 public interface AttrKeyMapper extends BaseMapper<AttrKey> {
 
+    List<AttrKeyVo> listAttrInfo();
 }
 
 

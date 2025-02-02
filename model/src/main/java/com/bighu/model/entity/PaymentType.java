@@ -1,5 +1,6 @@
 package com.bighu.model.entity;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.v3.oas.annotations.media.Schema;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -23,6 +24,7 @@ public class PaymentType extends BaseEntity {
 
     @Schema(description = "付费说明")
     @TableField(value = "additional_info")
+
     private String additionalInfo;
 
 

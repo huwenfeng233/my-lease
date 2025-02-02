@@ -8,4 +8,5 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.bighu.web.*.mapper")
 public class MybatisPlusConfiguration {
 
+
 }

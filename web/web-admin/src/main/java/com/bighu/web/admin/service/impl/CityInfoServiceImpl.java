@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bighu.model.entity.CityInfo;
 import com.bighu.web.admin.service.CityInfoService;
 import com.bighu.web.admin.mapper.CityInfoMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author liubo
@@ -15,6 +18,12 @@ import org.springframework.stereotype.Service;
 public class CityInfoServiceImpl extends ServiceImpl<CityInfoMapper, CityInfo>
     implements CityInfoService{
 
+    @Autowired
+    CityInfoMapper cityInfoMapper;
+    @Override
+    public List<CityInfo> listCityInfoByProvinceId(Long id) {
+        return cityInfoMapper.listCityInfoByProvinceId(id);
+    }
 }
 
 

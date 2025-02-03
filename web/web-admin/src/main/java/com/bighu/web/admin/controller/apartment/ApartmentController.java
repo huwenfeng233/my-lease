@@ -6,12 +6,14 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.bighu.common.result.Result;
 import com.bighu.model.entity.ApartmentInfo;
 import com.bighu.model.enums.ReleaseStatus;
+import com.bighu.web.admin.service.ApartmentInfoService;
 import com.bighu.web.admin.vo.apartment.ApartmentDetailVo;
 import com.bighu.web.admin.vo.apartment.ApartmentItemVo;
 import com.bighu.web.admin.vo.apartment.ApartmentQueryVo;
 import com.bighu.web.admin.vo.apartment.ApartmentSubmitVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,9 +24,13 @@ import java.util.List;
 @RequestMapping("/admin/apartment")
 public class ApartmentController {
 
+    @Autowired
+
+
     @Operation(summary = "保存或更新公寓信息")
     @PostMapping("saveOrUpdate")
     public Result saveOrUpdate(@RequestBody ApartmentSubmitVo apartmentSubmitVo) {
+
         return Result.ok();
     }
 

@@ -4,7 +4,12 @@ import com.bighu.model.entity.FeeKey;
 import com.bighu.web.admin.mapper.FeeKeyMapper;
 import com.bighu.web.admin.service.FeeKeyService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.bighu.web.admin.service.FeeValueService;
+import com.bighu.web.admin.vo.fee.FeeKeyVo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author liubo
@@ -15,6 +20,15 @@ import org.springframework.stereotype.Service;
 public class FeeKeyServiceImpl extends ServiceImpl<FeeKeyMapper, FeeKey>
     implements FeeKeyService{
 
+    @Autowired
+    FeeKeyMapper feeKeyMapper;
+    @Autowired
+    private FeeValueService feeValueService;
+
+    @Override
+    public List<FeeKeyVo> feeInfoList() {
+        return feeKeyMapper.feeInfoList();
+    }
 }
 
 

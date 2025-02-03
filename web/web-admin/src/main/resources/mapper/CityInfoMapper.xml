@@ -4,4 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bighu.web.admin.mapper.CityInfoMapper">
 
+
+    <select id="listCityInfoByProvinceId" resultType="com.bighu.model.entity.CityInfo">
+        select id,
+               name,
+               province_id
+        from city_info
+        where province_id = #{id}
+          and is_deleted = 0
+
+    </select>
 </mapper>

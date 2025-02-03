@@ -27,3 +27,9 @@ mybatis-plus:
 logging:
   level: #日志级别
       com.bighu.web: trace
+
+minio:
+  endpoint: http://127.0.0.1:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket-name: lease

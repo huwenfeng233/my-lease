@@ -16,6 +16,7 @@ import java.util.List;
 @Mapper
 public interface FeeKeyMapper extends BaseMapper<FeeKey> {
 
+    List<FeeKeyVo> feeInfoList();
 }
 
 

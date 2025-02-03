@@ -2,7 +2,10 @@ package com.bighu.web.admin.mapper;
 
 import com.bighu.model.entity.ApartmentFacility;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.bighu.model.entity.FacilityInfo;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
 * @author liubo
@@ -14,6 +17,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ApartmentFacilityMapper extends BaseMapper<ApartmentFacility> {
 
+    List<FacilityInfo> getByApartmentId(Long id);
+
+    void removeByApartmentId(Long id);
 }
 
 

@@ -3,5 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bighu.web.admin.mapper.ApartmentFacilityMapper">
+    <update id="removeByApartmentId">
+        update apartment_facility set is_deleted=1 where apartment_id=#{id}
+    </update>
 
+
+    <select id="getByApartmentId" resultType="com.bighu.model.entity.FacilityInfo">
+        select
+            fi.id,
+            fi.type,
+            fi.name,
+            fi.icon
+            from
+              apartment_facility af
+            left join  facility_info fi
+            on af.facility_id=fi.id
+        where af.is_deleted=0 and   fi.is_deleted=0 and af.apartment_id=#{id}
+    </select>
 </mapper>

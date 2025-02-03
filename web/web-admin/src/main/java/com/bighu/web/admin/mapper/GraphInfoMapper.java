@@ -17,6 +17,9 @@ import java.util.List;
 @Mapper
 public interface GraphInfoMapper extends BaseMapper<GraphInfo> {
 
+    List<GraphVo> getByApartmentId(Long id);
+
+    void removeByApartmentId(Long id);
 }
 
 

@@ -1,6 +1,7 @@
 package com.bighu.web.admin.service;
 
 import com.bighu.model.entity.ApartmentInfo;
+import com.bighu.model.enums.ReleaseStatus;
 import com.bighu.web.admin.vo.apartment.ApartmentDetailVo;
 import com.bighu.web.admin.vo.apartment.ApartmentItemVo;
 import com.bighu.web.admin.vo.apartment.ApartmentQueryVo;
@@ -17,4 +18,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface ApartmentInfoService extends IService<ApartmentInfo> {
 
     boolean saveOrUpdateApartment(ApartmentSubmitVo apartmentSubmitVo);
+
+    IPage<ApartmentItemVo> pageItem(Page<ApartmentItemVo> apartmentItemVoPage, ApartmentQueryVo queryVo);
+
+    ApartmentDetailVo getDetailById(Long id);
+
+void removeApartmentById(Long id);
+
+
 }

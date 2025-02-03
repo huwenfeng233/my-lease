@@ -2,7 +2,10 @@ package com.bighu.web.admin.mapper;
 
 import com.bighu.model.entity.ApartmentLabel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.bighu.model.entity.LabelInfo;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
 * @author liubo
@@ -13,6 +16,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ApartmentLabelMapper extends BaseMapper<ApartmentLabel> {
 
+    List<LabelInfo> getByApartmentId(Long id);
+
+    void removeByApartmentId(Long id);
 }
 
 

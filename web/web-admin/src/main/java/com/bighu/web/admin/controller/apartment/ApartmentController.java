@@ -24,7 +24,7 @@ import java.util.List;
 @RequestMapping("/admin/apartment")
 public class ApartmentController {
 
-    @Autowired
+
 
 
     @Operation(summary = "保存或更新公寓信息")

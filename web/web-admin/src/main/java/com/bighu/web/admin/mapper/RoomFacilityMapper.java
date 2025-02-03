@@ -1,8 +1,11 @@
 package com.bighu.web.admin.mapper;
 
+import com.bighu.model.entity.FacilityInfo;
 import com.bighu.model.entity.RoomFacility;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
 * @author liubo
@@ -13,6 +16,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface RoomFacilityMapper extends BaseMapper<RoomFacility> {
 
+    List<FacilityInfo> getByRoomId(Long id);
 }
 
 

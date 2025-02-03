@@ -4,4 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bighu.web.admin.mapper.RoomLabelMapper">
 
+    <select id="getByRoomId" resultType="com.bighu.model.entity.LabelInfo">
+        select
+            li.id, li.name, li.type
+            from room_label rl
+        left join label_info li
+        on rl.label_id=li.id
+        where rl.room_id=#{id} and rl.is_deleted=0 and li.is_deleted=0
+    </select>
 </mapper>

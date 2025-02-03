@@ -95,7 +95,7 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
         if (!CollectionUtils.isEmpty(graphVoList)) {
             ArrayList<GraphInfo> graphInfos = new ArrayList<>();
             for (GraphVo graphVo : graphVoList) {
-                GraphInfo graphInfo = new GraphInfo();
+                GraphInfo graphInfo = GraphInfo.builder().build();
                 graphInfo.setItemId(apartmentSubmitVo.getId());
                 graphInfo.setItemType(ItemType.APARTMENT);
                 graphInfo.setName(graphVo.getName());
@@ -146,7 +146,7 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
     }
 
     @Override
-    public IPage<ApartmentItemVo> pageItem(Page<ApartmentItemVo> apartmentItemVoPage, ApartmentQueryVo queryVo) {
+    public IPage<ApartmentItemVo> pageItem(IPage<ApartmentItemVo> apartmentItemVoPage, ApartmentQueryVo queryVo) {
         return apartmentInfoMapper.pageItem(apartmentItemVoPage,queryVo);
 
     }

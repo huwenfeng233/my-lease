@@ -20,7 +20,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface ApartmentInfoMapper extends BaseMapper<ApartmentInfo> {
 
-    IPage<ApartmentItemVo> pageItem(Page<ApartmentItemVo> apartmentItemVoPage, @Param("queryVo") ApartmentQueryVo queryVo);
+    IPage<ApartmentItemVo> pageItem( IPage<ApartmentItemVo> page, @Param("queryVo") ApartmentQueryVo queryVo);
 
     ApartmentDetailVo getDetailById(@Param("id") Long id);
 

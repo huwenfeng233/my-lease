@@ -1,8 +1,11 @@
 package com.bighu.web.admin.mapper;
 
+import com.bighu.model.entity.PaymentType;
 import com.bighu.model.entity.RoomPaymentType;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
 * @author liubo
@@ -13,6 +16,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface RoomPaymentTypeMapper extends BaseMapper<RoomPaymentType> {
 
+    List<PaymentType> getByRoomId(Long id);
 }
 
 

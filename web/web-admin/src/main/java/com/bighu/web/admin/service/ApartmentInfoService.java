@@ -19,7 +19,7 @@ public interface ApartmentInfoService extends IService<ApartmentInfo> {
 
     boolean saveOrUpdateApartment(ApartmentSubmitVo apartmentSubmitVo);
 
-    IPage<ApartmentItemVo> pageItem(Page<ApartmentItemVo> apartmentItemVoPage, ApartmentQueryVo queryVo);
+    IPage<ApartmentItemVo> pageItem(IPage<ApartmentItemVo> apartmentItemVoPage, ApartmentQueryVo queryVo);
 
     ApartmentDetailVo getDetailById(Long id);
 

@@ -25,12 +25,13 @@ import java.util.List;
 public class ApartmentController {
 
 
-
+    @Autowired
+    private ApartmentInfoService apartmentInfoService;
 
     @Operation(summary = "保存或更新公寓信息")
     @PostMapping("saveOrUpdate")
     public Result saveOrUpdate(@RequestBody ApartmentSubmitVo apartmentSubmitVo) {
-
+        boolean b = apartmentInfoService.saveOrUpdateApartment(apartmentSubmitVo);
         return Result.ok();
     }
 

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.bighu.common.constant.RedisConstant;
 import com.bighu.model.entity.*;
 import com.bighu.model.enums.ItemType;
 import com.bighu.web.admin.mapper.*;
@@ -17,9 +18,12 @@ import com.bighu.web.admin.vo.room.RoomQueryVo;
 import com.bighu.web.admin.vo.room.RoomSubmitVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author liubo
@@ -67,9 +71,11 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
     private RoomLabelService roomLabelService;
     @Autowired
     private RoomPaymentTypeService roomPaymentTypeService;
-
+    @Autowired
+    private RedisTemplate<String, Object> redisTemplate;
     @Override
     public void saveOrUpdateRoomInfo(RoomSubmitVo roomSubmitVo) {
+
 //        先更新房间信息
         boolean is_update = roomSubmitVo.getId() != null;
         super.saveOrUpdate(roomSubmitVo);
@@ -103,6 +109,8 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
             roomLeaseTermLambdaQueryWrapper.eq(RoomLeaseTerm::getRoomId, roomSubmitVo.getId());
             roomLeaseTermLambdaQueryWrapper.in(RoomLeaseTerm::getLeaseTermId, roomSubmitVo.getLeaseTermIds());
             roomLeaseTermMapper.delete(roomLeaseTermLambdaQueryWrapper);
+            String key = RedisConstant.APP_ROOM_PREFIX+roomSubmitVo.getId();
+            redisTemplate.delete(key);
         }
 //        添加信息
 
@@ -231,6 +239,10 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
         roomPaymentTypeService.remove(new LambdaQueryWrapper<RoomPaymentType>().eq(RoomPaymentType::getRoomId, id));
 //        删除租期信息
         roomLeaseTermService.remove(new LambdaQueryWrapper<RoomLeaseTerm>().eq(RoomLeaseTerm::getRoomId, id));
+
+//        删除缓存
+        String key = RedisConstant.APP_ROOM_PREFIX+id;
+        redisTemplate.delete(key);
     }
 }
 

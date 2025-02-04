@@ -83,7 +83,7 @@
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
-                <version>5.10.0</version> <!-- 使用最新版本 -->
+
                 <scope>test</scope>
             </dependency>
 
@@ -91,8 +91,9 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <scope>test</scope>
                 <version>3.0.5</version>
+                <scope>test</scope>
+
             </dependency>
             <!--对象存储，用于存储图像等非结构化数据-->
             <!--官方文档：https://min.io/docs/minio/linux/developers/minio-drivers.html?ref=docs#java-sdk -->
@@ -111,5 +112,15 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip> <!-- 跳过 Spring Boot 插件 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

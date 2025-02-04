@@ -1,12 +1,9 @@
 package com.bighu.web.admin.service.impl;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.bighu.model.entity.ViewAppointment;
 import com.bighu.web.admin.mapper.ViewAppointmentMapper;
 import com.bighu.web.admin.service.ViewAppointmentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.bighu.web.admin.vo.appointment.AppointmentQueryVo;
-import com.bighu.web.admin.vo.appointment.AppointmentVo;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,16 +15,6 @@ import org.springframework.stereotype.Service;
 public class ViewAppointmentServiceImpl extends ServiceImpl<ViewAppointmentMapper, ViewAppointment>
         implements ViewAppointmentService {
 
-    private final ViewAppointmentMapper viewAppointmentMapper;
-
-    public ViewAppointmentServiceImpl(ViewAppointmentMapper viewAppointmentMapper) {
-        this.viewAppointmentMapper = viewAppointmentMapper;
-    }
-
-    @Override
-    public IPage<AppointmentVo> getPage(IPage<AppointmentVo> page, AppointmentQueryVo queryVo) {
-        return viewAppointmentMapper.getPage(page,queryVo);
-    }
 }
 
 

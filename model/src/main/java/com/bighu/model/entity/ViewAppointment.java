@@ -1,7 +1,6 @@
 package com.bighu.model.entity;
 
 import com.bighu.model.enums.AppointmentStatus;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -32,7 +31,6 @@ public class ViewAppointment extends BaseEntity {
     @TableField(value = "apartment_id")
     private Long apartmentId;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Schema(description = "预约时间")
     @TableField(value = "appointment_time")
     private Date appointmentTime;

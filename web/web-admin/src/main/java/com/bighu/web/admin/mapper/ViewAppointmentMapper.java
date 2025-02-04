@@ -6,7 +6,6 @@ import com.bighu.web.admin.vo.appointment.AppointmentVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 /**
 * @author liubo
@@ -16,8 +15,6 @@ import org.apache.ibatis.annotations.Param;
 */
 @Mapper
 public interface ViewAppointmentMapper extends BaseMapper<ViewAppointment> {
-
-    IPage<AppointmentVo> getPage(IPage<AppointmentVo> page,@Param("query") AppointmentQueryVo queryVo);
 
 }
 

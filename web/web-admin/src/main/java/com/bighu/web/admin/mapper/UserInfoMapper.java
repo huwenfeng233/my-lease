@@ -1,9 +1,7 @@
 package com.bighu.web.admin.mapper;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.bighu.model.entity.UserInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.bighu.web.admin.vo.user.UserInfoQueryVo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -15,7 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
-    IPage<UserInfo> getPage(IPage<UserInfo> page, UserInfoQueryVo queryVo);
 }
 
 

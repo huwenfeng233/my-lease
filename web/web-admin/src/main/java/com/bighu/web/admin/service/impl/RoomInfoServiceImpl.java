@@ -179,10 +179,7 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
 
 
 //        获取属性信息考
-        List<AttrValue> attrValueList = attrValueMapper.getByRoomId(id);
-        List<AttrValueVo> attrValueVoList=attrValueList.stream().map(attrValue -> {
-            return new AttrValueVo(attrValue.getName());
-        }).toList();
+        List<AttrValueVo> attrValueList = attrValueMapper.getByRoomId(id);
 //        获取配套信息列表
         List<FacilityInfo> roomFacilityList = roomFacilityMapper.getByRoomId(id);
 //        获取标签信息列表
@@ -196,7 +193,7 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
 //    组合信息
         roomDetailVo.setApartmentInfo(list.get(0));
         roomDetailVo.setGraphVoList(graphVoList);
-        roomDetailVo.setAttrValueVoList(attrValueVoList);
+        roomDetailVo.setAttrValueVoList(attrValueList);
         roomDetailVo.setFacilityInfoList(roomFacilityList);
         roomDetailVo.setLabelInfoList(labelInfoList);
         roomDetailVo.setPaymentTypeList(paymentTypeList);

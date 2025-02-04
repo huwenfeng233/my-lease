@@ -1,5 +1,6 @@
 package com.bighu.web.admin.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bighu.model.entity.SystemUser;
 import com.bighu.web.admin.vo.system.user.SystemUserItemVo;
 import com.bighu.web.admin.vo.system.user.SystemUserQueryVo;
@@ -15,6 +16,8 @@ import org.apache.ibatis.annotations.Mapper;
 */
 @Mapper
 public interface SystemUserMapper extends BaseMapper<SystemUser> {
+
+    IPage<SystemUserItemVo> getPage(Page<SystemUserItemVo> systemUserItemVoPage, SystemUserQueryVo queryVo);
 
 }
 

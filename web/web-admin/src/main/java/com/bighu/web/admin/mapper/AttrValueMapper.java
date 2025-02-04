@@ -16,7 +16,7 @@ import java.util.List;
 @Mapper
 public interface AttrValueMapper extends BaseMapper<AttrValue> {
 
-    List<AttrValue> getByRoomId(Long id);
+    List<AttrValueVo> getByRoomId(Long id);
 }
 
 

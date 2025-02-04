@@ -1,5 +1,6 @@
 package com.bighu.web.admin.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bighu.model.entity.LeaseAgreement;
 import com.bighu.web.admin.vo.agreement.AgreementQueryVo;
 import com.bighu.web.admin.vo.agreement.AgreementVo;
@@ -16,6 +17,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface LeaseAgreementMapper extends BaseMapper<LeaseAgreement> {
 
+    IPage<AgreementVo> getPage(Page<AgreementVo> agreementVoPage, AgreementQueryVo queryVo);
 }
 
 
